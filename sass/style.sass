@@ -1,0 +1,205 @@
+@use 'variables'
+@use 'mixins'
+
+*
+    font-family: 'josefin Sans'
+    margin: 0px
+    padding: 0px
+    box-sizing: border-box
+
+body
+    background-color: variables.$bg-color
+    color: variables.$text-color
+
+    a
+        color: variables.$text-color
+        text-decoration: none
+        transition: .4s
+
+    ul
+        list-style: none
+
+    .header-menuMobile
+        display: none
+
+    @include  mixins.mobile
+        .header-menuMobile
+            display: block
+
+    .navMobile
+        display: none
+
+    @include  mixins.mobile
+        .navMobile
+            display: none
+
+.header
+    display: flex
+    align-items: center
+    justify-content: space-between
+    @include mixins.container
+
+    @include  mixins.mobile
+        padding: 1.1rem
+
+    &-brand //no css ficaria .header-brand
+        color: variables.$primary-color
+        font-size: 3rem
+
+    &-navBar
+        ul
+            height: 100%
+            @include mixins.flex-center
+
+            @include  mixins.mobile
+                display: none
+
+            li
+                margin: 0 1rem
+                text-transform: uppercase
+                font-size: .8rem
+
+                @include  mixins.mobile771
+                    margin: 0 0.3rem
+
+                .active
+                    color: variables.$second-color
+
+                a
+                    &:hover
+                        color: variables.$second-color
+
+    &-socialMedia
+        ul
+            @include mixins.flex-center
+            height: 100%
+
+            @include  mixins.mobile
+                display: none
+
+        li
+            margin: 0 1rem
+
+            @include  mixins.mobile771
+                margin: 0 0.3rem
+
+            a
+                &:hover
+                    color: variables.$primary-color
+
+    &-menuMobile
+        color: variables.$primary-color
+        font-size: 30px
+
+.navMobile
+    height: 100vh
+    width: 35%
+    margin-top: -90px
+    background-color: variables.$mobile-bg
+    position: fixed
+
+    .conteudo-a
+        display: flex
+        flex-direction: column
+        gap: 30px
+        font-size: 20px
+        margin-top: 55px
+        margin-left: 9px
+
+        &:hover
+            color: variables.$second-color
+
+.abrirNavMobile
+    @include mixins.animacaoMobile
+    animation: slide .3s linear forwards
+
+.fecharNavMobile
+    @include mixins.animacaoFecharMobile
+    animation: slideFechar .3s linear forwards
+
+.gallery
+    @include mixins.flex-center
+    @include mixins.container
+    flex-wrap: wrap
+    justify-content: space-between
+    padding: 0
+
+    @include  mixins.mobile
+        flex-direction: column
+
+    &-card
+        width: 31%
+        height: 400px
+        margin-bottom: 4%
+        @include mixins.flex-center
+        flex-direction: column
+        color: variables.$primary-color
+
+        @include  mixins.mobile
+            width: 90%
+            margin-bottom: 6%
+
+    &-card-title
+        font-size: 2rem
+        font-weight: 300
+        margin-bottom: 1rem
+
+    &-card-btn
+        padding: .6em 2rem
+        border: 2px solid variables.$primary-color
+        color: variables.$primary-color
+        font-weight: 400
+        text-transform: uppercase
+        letter-spacing: 1px
+
+        &:hover
+            background: variables.$primary-color
+            color: variables.$bg-color
+
+    #card-1
+        @include mixins.bg-img('animais.jpg')
+
+    #card-2
+        @include mixins.bg-img('arquitetura.jpg')
+
+    #card-3
+        @include mixins.bg-img('cidade.jpg')
+
+    #card-4
+        @include mixins.bg-img('decoracao.jpg')
+
+    #card-5
+        @include mixins.bg-img('esportes.jpg')
+
+    #card-6
+        @include mixins.bg-img('natureza.jpg')
+
+    #card-7
+        @include mixins.bg-img('paisagem.jpg')
+
+    #card-8
+        @include mixins.bg-img('pessoas.jpg')
+
+    #card-9
+        @include mixins.bg-img('refeicoes.jpg')
+
+footer
+    text-align: center
+    padding: 2rem
+    display: flex
+    flex-direction: column
+    gap: 10px
+
+    span
+        font-weight: bold
+        color: variables.$second-color
+
+    .redes
+        display: none
+
+    .redes a
+        font-size: 19px
+
+    @include  mixins.mobile
+        .redes
+            display: block
